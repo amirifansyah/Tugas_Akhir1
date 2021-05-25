@@ -13,9 +13,9 @@ class PasienController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pasiens = Pasien::all();
+        $pasiens = Pasien::where('nama', 'LIKE', '%'.$request->serch.'%')->orwhere('alamat', 'LIKE', '%'.$request->serch.'%')->get();
         return view('crud.index', compact('pasiens'));
     }
 
@@ -48,6 +48,10 @@ class PasienController extends Controller
             'keluar' => ''
         ]);
         $pasien = Pasien::create($validated);
+        $kamar = new Kamar;
+        $kamar = $kamar->findKamarById($request['kamar_id']);
+        $kamar->kapasitas = $kamar->kapasitas - 1;
+        $kamar->save();
         return redirect('/admin')->with('pesan', "data pasien berhasil disimpan");
     }
 
@@ -103,6 +107,11 @@ class PasienController extends Controller
      */
     public function destroy(Pasien $pasien)
     {
+        $kamar = new Kamar;
+        $kamar = $kamar->findKamarById($pasien['kamar_id']);
+        $kamar->kapasitas = $kamar->kapasitas + 1;
+        $kamar->save();
+        
         $pasien->delete();
         return redirect('/admin')->with('pesan', "data berhasil dihapus");
     }

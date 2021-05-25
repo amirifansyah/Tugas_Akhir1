@@ -36,6 +36,7 @@
                 <th>Nama Kamar</th>
                 <th>Diagnosa</th>
                 <th>Tanggal Keluar</th>
+                <th>Hapus</th>
               </tr>
             </thead>
             <tbody>
@@ -49,6 +50,11 @@
                     <th>{{ $pasien->kamar->nama_kamar }}</th>
                     <td>{{ $pasien->diagnosis}}</td>
                     <td>{{ $pasien->keluar}}</td>
+                    <td>   <form action="{{ url('/pasiens/'.$pasien->id)}}" method="POST">
+                      @method('DELETE')
+                      @csrf
+                      <button type="submit" class="btn btn-danger">Hapus</button>
+                  </form> </td>
                 </tr>    
                 @empty
                     <td colspan="8" class="text-center" >Data Kosong</td>

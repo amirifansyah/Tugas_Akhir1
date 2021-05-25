@@ -9,11 +9,7 @@
                 <a href="{{ url('/pasiens/'.$pasien->id.'/edit') }}" class="btn btn-info">Edit</a>
 
                                            
-                    <form action="{{ url('/pasiens/'.$pasien->id)}}" method="POST">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit" class="btn btn-danger">Hapus</button>
-                    </form>
+                  
                 
             </div>
 

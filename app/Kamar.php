@@ -11,4 +11,8 @@ class Kamar extends Model
     public function pasien(){
         return $this->hasMany(Pasien::class, 'kamar_id', 'id');
     }
+
+    public function findKamarById($id){
+        return $this->where('id', $id)->first();
+    }
 }
