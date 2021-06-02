@@ -6,6 +6,7 @@
       </li>
     </ul>
     <P>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil consectetur repellendus voluptatum maiores ratione in corporis dolores! Enim quibusdam a laboriosam dolores, nobis placeat nesciunt quos commodi, veritatis earum atque!</P>
+    <h1>NEW PROJEK</h1>
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
       <!-- Navbar Search -->
