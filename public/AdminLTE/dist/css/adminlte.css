@@ -16096,8 +16096,8 @@ body.text-sm .control-sidebar {
 }
 
 .navbar-dark {
-  background-color: #343a40;
-  border-color: #4b545c;
+  background: rgb(46,128,129);
+  background: linear-gradient(0deg, rgba(46,128,129,1) 0%, rgba(97,255,79,1) 57%);
 }
 
 .navbar-primary {
